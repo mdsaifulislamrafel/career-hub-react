@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { CiLocationOn } from "react-icons/ci";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 
 const Job = ({ job }) => {
-    const { logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = job;
+    const { id, logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = job;
     return (
         <div className="space-y-4 rounded-lg  p-6 border-2 bg-white">
             <img alt="card navigate ui" src={logo} />
@@ -26,7 +27,7 @@ const Job = ({ job }) => {
                     <p>{salary}</p>
                 </div>
             </div>
-            <button className="px-4 py-2 bg-[#7E90FE] hover:bg-gray-800 text-white font-bold duration-300 rounded-md">View Details</button>
+            <Link to={`job/${id}`}><button className="px-4 py-2 bg-[#7E90FE] hover:bg-gray-800 text-white font-bold duration-300 rounded-md">View Details</button></Link>
         </div>
     );
 };
