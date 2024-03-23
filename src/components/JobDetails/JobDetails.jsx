@@ -3,16 +3,20 @@ import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { IoCalendarClear } from "react-icons/io5";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { addLocalStorage } from "../utlity/localstorage";
 
 
 
 const JobDetails = () => {
     const jobs = useLoaderData();
     const { id } = useParams();
-    const job = jobs.find(job => job.id === parseInt(id));
+    const intId = parseInt(id)
+    const job = jobs.find(job => job.id === intId);
     const { job_description, educational_requirements, job_responsibility, experiences, contact_information, salary, job_title } = job;
 
     const handleApplyJob = () => {
+        // saveJobApplication(id)
+        addLocalStorage(intId)
         toast.success('Job applied successfully')
     };
 
